@@ -3,8 +3,7 @@ import Sidebar from './components/Sidebar/Sidebar';
 
 function App() {
   return (
-    <div className="app">
-      <h2 className='text'> Hello World</h2>
+    <div class="app">
       <Sidebar />
     </div>
   );
