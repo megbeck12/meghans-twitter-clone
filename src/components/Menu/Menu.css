@@ -1,0 +1,120 @@
+nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 3em;
+  background-color: red;
+  z-index: 1;
+}
+
+.menu-toggle {
+  position: relative;
+  top: 0.5em;
+  left: 1em;
+  display: grid;
+  place-content: center;
+  width: 30px + 10;
+  height: 30px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.menu-toggle:hover,
+:focus {
+  border: 2px solid blue;
+}
+
+.menu {
+  position: relative;
+  width: 30px;
+  height: 3px;
+  border-radius: 2px;
+  background-color: var(--alternate-colour);
+  z-index: 2;
+  transition: background-color 100ms var(--easing) 150ms;
+}
+
+.menu::before,
+::after {
+  position: absolute;
+  content: "";
+  width: 30px;
+  height: 3px;
+  left: 0;
+  border-radius: 2px;
+  background-color: blue;
+}
+
+.menu::before {
+  top: 3px * -2;
+  transition: transform var(--transition-short) var(--easing);
+}
+
+.menu::after {
+  bottom: 3px * -2;
+  transition: transform var(--transition-short) var(--easing);
+}
+
+.cross.menu {
+  background-color: yellow;
+  transition: none;
+}
+
+.cross.menu::before {
+  top: 0;
+  transform: rotate(-45deg);
+  background-color: var(--alternate-colour);
+}
+
+.cross.menu::after {
+  bottom: 0;
+  transform: rotate(45deg);
+  background-color: var(--alternate-colour);
+}
+
+.menu-links {
+    position: absolute;
+    top: 5vw;
+    left: 5vw;
+    /* right: 5vw; */
+    width: 85vw;
+    margin: 0 auto;
+    padding: 0;
+    padding-top: 1.25em;
+    border-radius: var(--border-radius);
+    background-color: var(--secondary-colour);
+    opacity: 0;
+    transform: scale(0);
+    transform-origin: top left;
+    list-style-type: none;
+    transition: opacity var(--transition-time) var(--easing),
+      transform var(--transition-time) var(--easing);
+  }
+
+  .menu-links .show {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+a {
+  display: block;
+  padding: 1em;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--alternate-colour);
+  text-decoration: none;
+}
+
+a:hover,
+:focus,
+:active {
+  text-decoration: underline;
+}
+
+.active {
+  background-color: var(--parallax-colour);
+  color: var(--active-nav-colour);
+}

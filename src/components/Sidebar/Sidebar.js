@@ -1,34 +1,54 @@
 import React from "react";
-import { Drawer, ListItem, ListItemIcon, ListItemText, Button } from "@mui/material";
-import  {BookmarkBorderOutlined, EmailOutlined, HomeOutlined, ListAltOutlined, MoreHorizOutlined, NotificationsNoneOutlined , PersonOutlineOutlined, SearchOutlined} from "@mui/icons-material"
+import {
+  Drawer,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Button,
+} from "@mui/material";
+import {
+  BookmarkBorderOutlined,
+  EmailOutlined,
+  HomeOutlined,
+  ListAltOutlined,
+  MoreHorizOutlined,
+  NotificationsNoneOutlined,
+  PersonOutlineOutlined,
+  SearchOutlined,
+} from "@mui/icons-material";
 import { useState } from "react";
 
-const menuData = [ {
-  name: "Home",
-  icon: <HomeOutlined/>
-},
-{
-  name: "Explore", icon: <SearchOutlined/>
-},
-{
-  name: "Notifications", icon: <NotificationsNoneOutlined/>
-},
-{
-  name: "Messages", icon: <EmailOutlined />
-},
-{
-  name: "Bookmarks", icon: <BookmarkBorderOutlined/>
-},
-{
-  name: "Lists", icon: <ListAltOutlined/>
-},
-{
-  name: "Profile", icon: <PersonOutlineOutlined/>
-},
-{
-  name: "More", icon: <MoreHorizOutlined/>
-}
-]
+const menuData = [
+  { name: "Home", icon: <HomeOutlined /> },
+  {
+    name: "Explore",
+    icon: <SearchOutlined />,
+  },
+  {
+    name: "Notifications",
+    icon: <NotificationsNoneOutlined />,
+  },
+  {
+    name: "Messages",
+    icon: <EmailOutlined />,
+  },
+  {
+    name: "Bookmarks",
+    icon: <BookmarkBorderOutlined />,
+  },
+  {
+    name: "Lists",
+    icon: <ListAltOutlined />,
+  },
+  {
+    name: "Profile",
+    icon: <PersonOutlineOutlined />,
+  },
+  {
+    name: "More",
+    icon: <MoreHorizOutlined />,
+  },
+];
 
 function Sidebar() {
   const [open, setOpen] = useState(false);
@@ -45,9 +65,16 @@ function Sidebar() {
   );
 
   return (
-    <div class="sidebar-container">
+    <div className="sidebar-container">
       <Button onClick={() => setOpen(true)}>Click me</Button>
-      <Drawer variant="temporary" open={open} anchor={"left"} onClose={() => setOpen(false)}>{getList()}</Drawer>
+      <Drawer
+        variant="temporary"
+        open={open}
+        anchor={"left"}
+        onClose={() => setOpen(false)}
+      >
+        {getList()}
+      </Drawer>
     </div>
   );
 }
