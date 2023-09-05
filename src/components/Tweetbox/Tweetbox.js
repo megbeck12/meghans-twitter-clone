@@ -1,50 +1,27 @@
 import React from "react";
-import { useState } from "react";
 import "./Tweetbox.css";
-
-/* 
-show a list of tweets above the text box
-show text of tweet and timestamp of the tweet, keep state
-*/
+import TextBox from "../TextBox/TextBox";
+import { useState } from "react";
+import { TweetView } from "./TweetView";
 
 function Tweetbox() {
-  const [data, setData] = useState();
-
-  const click = () => {
-    setTweets(tweets.concat(data));
-    setData();
-    date(getDate);
-  };
-
   const [tweets, setTweets] = useState([]);
+  
+  const onClick = (tweet) => {
+    //save the new tweet into an array of tweets
+    setTweets(tweets.concat(tweet))
+  }
 
-  const currentDate = new Date().toLocaleString();
-
-  const [getDate, setCurrentDate] = useState(currentDate);
-
-  const date = () => {
-    setCurrentDate(currentDate)
-  };
-
-  const comment = (event) => {
-    setData(event.target.value);
-  };
-
+  //now bind the textbox to the onclick
   return (
     <div>
+      <div>
       {tweets.map((tweet, index) => (
-        <p key={index}>{currentDate} <br /> {tweet}</p>
+        <TweetView tweet={tweet} key={index} />
       ))}
-      <textarea
-        className="text-box"
-        type="text"
-        placeholder="Type here"
-        onChange={comment}
-        value={data}
-      />
-      <button className="button" onClick={click}>
-        Click here
-      </button>
+        <TextBox onClick={onClick}/>
+      </div>
+      <p>Move the text area and button into a new component</p>
     </div>
   );
 }
