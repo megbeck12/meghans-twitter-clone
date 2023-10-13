@@ -21,7 +21,6 @@ function Tweetbox() {
       ))}
         <TextBox onClick={onClick}/>
       </div>
-      <p>Move the text area and button into a new component</p>
     </div>
   );
 }
